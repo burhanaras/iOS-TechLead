@@ -19,11 +19,24 @@ extension ReminderListViewController {
         contentConfiguration.text = reminder.title
         contentConfiguration.secondaryText = reminder.dueDate.dayAndTimeText
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .caption1)
-        contentConfiguration.image = UIImage(systemName: "qrcode")
         cell.contentConfiguration = contentConfiguration
+
+        var donebuttonConfiguration = doneButtonConfiguration(for: reminder)
+        donebuttonConfiguration.tintColor = .todayListCellDoneButtonTint
 
         var backgroundConfiguration = UIBackgroundConfiguration.listGroupedCell()
         backgroundConfiguration.backgroundColor = .todayListCellBackground
         cell.backgroundConfiguration = backgroundConfiguration
+        cell.accessories = [.customView(configuration: donebuttonConfiguration), .disclosureIndicator(displayed: .always)]
+    }
+
+    func doneButtonConfiguration(for reminder: Reminder) -> UICellAccessory.CustomViewConfiguration {
+        let symbolName = reminder.isComplete ? "circle.fill" : "circle"
+        let symbolConfiguration = UIImage.SymbolConfiguration(textStyle: .title1)
+        let image = UIImage(systemName: symbolName, withConfiguration: symbolConfiguration)
+
+        let button = UIButton()
+        button.setImage(image, for: .normal)
+        return UICellAccessory.CustomViewConfiguration(customView: button, placement: .leading(displayed: .always))
     }
 }
