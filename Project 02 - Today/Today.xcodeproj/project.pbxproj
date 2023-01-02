@@ -16,6 +16,7 @@
 		9450E7D22960BB910056A375 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9450E7D12960BB910056A375 /* Reminder.swift */; };
 		94BF89E72962036B00B0B61B /* Date+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89E62962036B00B0B61B /* Date+Today.swift */; };
 		94BF89EA29630FB500B0B61B /* ReminderListviewController+Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89E929630FB500B0B61B /* ReminderListviewController+Datasource.swift */; };
+		94BF89EC2963165600B0B61B /* UIColor+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89EB2963165600B0B61B /* UIColor+Today.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9450E7D12960BB910056A375 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		94BF89E62962036B00B0B61B /* Date+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Today.swift"; sourceTree = "<group>"; };
 		94BF89E929630FB500B0B61B /* ReminderListviewController+Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListviewController+Datasource.swift"; sourceTree = "<group>"; };
+		94BF89EB2963165600B0B61B /* UIColor+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Today.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				9450E7D12960BB910056A375 /* Reminder.swift */,
 				94BF89E62962036B00B0B61B /* Date+Today.swift */,
+				94BF89EB2963165600B0B61B /* UIColor+Today.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BF89EC2963165600B0B61B /* UIColor+Today.swift in Sources */,
 				9450E7C12960B8650056A375 /* ReminderListViewController.swift in Sources */,
 				94BF89E72962036B00B0B61B /* Date+Today.swift in Sources */,
 				9450E7BD2960B8650056A375 /* AppDelegate.swift in Sources */,
