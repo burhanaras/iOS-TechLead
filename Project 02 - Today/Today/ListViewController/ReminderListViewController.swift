@@ -10,7 +10,7 @@ import UIKit
 class ReminderListViewController: UICollectionViewController {
 
     var dataSource: DataSource!
-    let reminders: [Reminder] = Reminder.sampleData
+    var reminders: [Reminder] = Reminder.sampleData
 
     override func viewDidLoad() {
         super.viewDidLoad()

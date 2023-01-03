@@ -16,6 +16,15 @@ struct Reminder: Identifiable {
     var isComplete: Bool = false
 }
 
+extension Array where Element == Reminder {
+
+    func indexOfReminder(id: Reminder.ID) -> Self.Index {
+        guard let firstIndex = firstIndex(where: { $0.id == id }) else {
+            fatalError()
+        }
+        return firstIndex
+    }
+}
 
 #if DEBUG
 
