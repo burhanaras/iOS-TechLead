@@ -20,6 +20,7 @@
 		94BF89EF2964560E00B0B61B /* ReminderDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89EE2964560E00B0B61B /* ReminderDoneButton.swift */; };
 		94BF89F1296456F200B0B61B /* ReminderListVC+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89F0296456F200B0B61B /* ReminderListVC+Actions.swift */; };
 		94BF89F42965A86D00B0B61B /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89F32965A86D00B0B61B /* ReminderVC.swift */; };
+		94BF89F62965AB3F00B0B61B /* ReminderVC+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BF89F52965AB3F00B0B61B /* ReminderVC+Row.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		94BF89EE2964560E00B0B61B /* ReminderDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDoneButton.swift; sourceTree = "<group>"; };
 		94BF89F0296456F200B0B61B /* ReminderListVC+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListVC+Actions.swift"; sourceTree = "<group>"; };
 		94BF89F32965A86D00B0B61B /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
+		94BF89F52965AB3F00B0B61B /* ReminderVC+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderVC+Row.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				94BF89F32965A86D00B0B61B /* ReminderVC.swift */,
+				94BF89F52965AB3F00B0B61B /* ReminderVC+Row.swift */,
 			);
 			path = ReminderViewController;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94BF89F62965AB3F00B0B61B /* ReminderVC+Row.swift in Sources */,
 				94BF89EC2963165600B0B61B /* UIColor+Today.swift in Sources */,
 				94BF89F1296456F200B0B61B /* ReminderListVC+Actions.swift in Sources */,
 				9450E7C12960B8650056A375 /* ReminderListVC.swift in Sources */,
