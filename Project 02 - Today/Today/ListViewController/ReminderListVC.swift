@@ -36,5 +36,17 @@ class ReminderListVC: UICollectionViewController {
         listConfiguration.backgroundColor = .clear
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
+
+    private func showDetails(for id: Reminder.ID) {
+        let reminder = reminder(for: id)
+        let detailVC = ReminderVC(reminder: reminder)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let id = reminders[indexPath.item].id
+        showDetails(for: id)
+        return false
+    }
 }
 
