@@ -31,6 +31,7 @@ class ReminderVC: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = reminder.title
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
         datasource = DataSource(collectionView: collectionView) { (collectionView, indexPath, itemIdentifier) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)

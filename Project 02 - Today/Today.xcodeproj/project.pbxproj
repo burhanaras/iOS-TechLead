@@ -72,7 +72,6 @@
 		9450E7BB2960B8650056A375 /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				94BF89F22965A85E00B0B61B /* ReminderViewController */,
 				9450E7CA2960B8650056A375 /* Info.plist */,
 				9450E7BC2960B8650056A375 /* AppDelegate.swift */,
 				9450E7BE2960B8650056A375 /* SceneDelegate.swift */,
@@ -82,6 +81,7 @@
 				94BF89E829630F9500B0B61B /* ListViewController */,
 				9450E7C22960B8650056A375 /* Main.storyboard */,
 				9450E7D02960BB720056A375 /* Models */,
+				94BF89F22965A85E00B0B61B /* ReminderViewController */,
 			);
 			path = Today;
 			sourceTree = "<group>";
