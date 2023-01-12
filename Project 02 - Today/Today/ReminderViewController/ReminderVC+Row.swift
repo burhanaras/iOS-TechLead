@@ -12,6 +12,7 @@ extension ReminderVC {
 
     enum Row: Hashable {
 
+        case header(String)
         case viewDate
         case viewNotes
         case viewTitle
