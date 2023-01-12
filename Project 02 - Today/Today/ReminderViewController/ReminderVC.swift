@@ -10,10 +10,10 @@ import UIKit
 
 class ReminderVC: UICollectionViewController {
 
-    private typealias DataSource = UICollectionViewDiffableDataSource<Int, Row>
-    private typealias SnapShot = NSDiffableDataSourceSnapshot<Int, Row>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Row>
+    private typealias SnapShot = NSDiffableDataSourceSnapshot<Section, Row>
 
-    private var datasource: DataSource!
+    private var dataSource: DataSource!
 
     var reminder: Reminder
 
@@ -33,10 +33,11 @@ class ReminderVC: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.title = reminder.title
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
-        datasource = DataSource(collectionView: collectionView) { (collectionView, indexPath, itemIdentifier) in
+        dataSource = DataSource(collectionView: collectionView) { (collectionView, indexPath, itemIdentifier) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
-        updateSnapshot()
+        updateSnapshotForViewing()
+        collectionView.dataSource = dataSource
     }
 }
 
@@ -54,6 +55,17 @@ private extension ReminderVC {
     }
 
     func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
+        let section = section(for: indexPath)
+        switch (section, row) {
+        case (.view, _):
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = text(for: row)
+            contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
+            contentConfiguration.image = row.image
+            cell.contentConfiguration = contentConfiguration
+        default:
+            fatalError("Unexpected  combination")
+        }
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = text(for: row)
         contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
@@ -62,10 +74,24 @@ private extension ReminderVC {
         cell.tintColor = .todayPrimaryTint
     }
 
-    func updateSnapshot() {
+    func updateSnapshotForViewing() {
         var snapshot = SnapShot()
-        snapshot.appendSections([0])
-        snapshot.appendItems([.viewTitle, .viewDate, .viewTime, .viewNotes], toSection: 0)
-        datasource.apply(snapshot)
+        snapshot.appendSections([.view])
+        snapshot.appendItems([.viewTitle, .viewDate, .viewTime, .viewNotes], toSection: .view)
+        dataSource.apply(snapshot)
+    }
+
+    func updateSnapshotForEditing() {
+        var snapshot = SnapShot()
+        snapshot.appendSections([.title, .date, .notes])
+        dataSource.apply(snapshot)
+    }
+
+    private func section(for indexPath: IndexPath) -> Section {
+        let sectionNumber = isEditing ? indexPath.section + 1 : indexPath.section
+        guard let section = Section(rawValue: sectionNumber) else {
+            fatalError("Unable to find matching section")
+        }
+        return section
     }
 }
