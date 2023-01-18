@@ -17,6 +17,11 @@ class ViewController: UIViewController {
         loadJson()
     }
 
+    private func configureUI() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
     private func loadJson() {
         if let path = Bundle.main.path(forResource: "JsonData", ofType: ".json") {
             do {
@@ -25,14 +30,26 @@ class ViewController: UIViewController {
                 let jsonData = try JSONSerialization.data(withJSONObject: jsonResult, options: .prettyPrinted)
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)
-                print(productData?.response?.count ?? -1)
-            }
+                productData = try jsonDecoder.decode(ProductModel.self, from: jsonData)            }
             catch {
                 print(error.localizedDescription)
             }
         }
     }
-
 }
 
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.productData?.response?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell") as? ProductsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.productList = self.productData?.response?[indexPath.row]
+        return cell
+    }
+}

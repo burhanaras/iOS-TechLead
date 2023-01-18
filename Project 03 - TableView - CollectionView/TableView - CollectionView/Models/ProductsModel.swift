@@ -9,10 +9,10 @@ import Foundation
 
 struct ProductModel: Codable {
 
-    let response: [Product]?
+    let response: [ProductList]?
 }
 
-struct Product: Codable {
+struct ProductList: Codable {
 
     let categoryName: String?
     let products: [ProductDetails]?
